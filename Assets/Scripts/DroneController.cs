@@ -15,6 +15,7 @@ public class DroneController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 input;
+    private bool captureInput = true;
 
     private bool isAcceleratingX;
     private bool isAcceleratingZ;
@@ -28,13 +29,17 @@ public class DroneController : MonoBehaviour
 
     private void OnMove(InputValue movementValue)
     {
+        if (!captureInput)
+        {
+            captureInput = false;
+            input = Vector3.zero;
+            return;
+        }
+
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementVector.Normalize();
-
         input = new Vector3(movementVector.x, 0, movementVector.y);
 
-        isAcceleratingX = Mathf.Abs(movementVector.x) > 0;
-        isAcceleratingZ = Mathf.Abs(movementVector.y) > 0;
         Debug.LogFormat("OnMove: {0}", movementVector);
     }
 
@@ -43,6 +48,9 @@ public class DroneController : MonoBehaviour
         Vector3 force = Vector3.zero;
         Vector3 normalizedVelocity = rb.velocity.normalized;
         float speed = rb.velocity.magnitude;
+
+        isAcceleratingX = Mathf.Abs(input.x) > 0;
+        isAcceleratingZ = Mathf.Abs(input.z) > 0;
 
         if (!isAcceleratingX && !isAcceleratingZ && rb.velocity.magnitude < 0.05f)
             rb.velocity = Vector3.zero;
@@ -67,6 +75,11 @@ public class DroneController : MonoBehaviour
         AdjustPitchAndBank(input, rb.velocity);
 
         //Debug.LogFormat("Fixed Update: {0}", rb.IsSleeping());
+    }
+
+    public void AutoCutOff()
+    {
+        StartCoroutine(AutoCutOffCoroutine());
     }
 
     private void LimitMaxSpeed()
@@ -101,5 +114,33 @@ public class DroneController : MonoBehaviour
             rotation.z = Mathf.SmoothDampAngle(rotation.z, 0, ref currentBankingVelocityZ, 0.1f);
 
         transform.eulerAngles = rotation;
+    }
+
+    private IEnumerator AutoCutOffCoroutine()
+    {
+        Vector3 point1 = new Vector3(-1.7f, transform.position.y, 0);
+        Vector3 point2 = new Vector3(1.25f, transform.position.y, 0);
+        float distance = Vector3.Distance(transform.position, point1);
+
+        while (distance > 0.2f)
+        {
+            input = point1 - transform.position;
+            input.Normalize();
+            yield return null;
+            distance = Vector3.Distance(transform.position, point1);
+        }
+
+        input = Vector3.zero;
+        yield return new WaitForSeconds(1);
+        distance = Vector3.Distance(transform.position, point2);
+
+        while (distance > 0.2f)
+        {
+            input = point2 - transform.position;
+            input.Normalize();
+            yield return null;
+            distance = Vector3.Distance(transform.position, point2);
+        }
+        input = Vector3.zero;
     }
 }
