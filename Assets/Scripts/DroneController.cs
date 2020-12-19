@@ -88,14 +88,14 @@ public class DroneController : MonoBehaviour
         Vector3 rotation = transform.eulerAngles;
         if (isAcceleratingX)
             rotation.x = Mathf.SmoothDampAngle(rotation.x, input.x > 0 ? maxDeflection : -maxDeflection, ref currentBankingVelocityX, 0.2f);
-        else if (Mathf.Abs(currentVelocity.x) > 0)
+        else if (Mathf.Abs(currentVelocity.x) > 0.1f)
             rotation.x = Mathf.SmoothDampAngle(rotation.x, currentVelocity.x > 0 ? -maxDeflection : maxDeflection, ref currentBankingVelocityX, 0.1f);
         else
             rotation.x = Mathf.SmoothDampAngle(rotation.x, 0, ref currentBankingVelocityX, 0.1f);
 
         if (isAcceleratingZ)
             rotation.z = Mathf.SmoothDampAngle(rotation.z, input.z > 0 ? maxDeflection : -maxDeflection, ref currentBankingVelocityZ, 0.2f);
-        else if (Mathf.Abs(currentVelocity.z) > 0)
+        else if (Mathf.Abs(currentVelocity.z) > 0.1f)
             rotation.z = Mathf.SmoothDampAngle(rotation.z, currentVelocity.z > 0 ? -maxDeflection : maxDeflection, ref currentBankingVelocityZ, 0.1f);
         else
             rotation.z = Mathf.SmoothDampAngle(rotation.z, 0, ref currentBankingVelocityZ, 0.1f);
