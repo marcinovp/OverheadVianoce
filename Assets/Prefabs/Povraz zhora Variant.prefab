@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7040170586296351310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0015361311
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03077364
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.277152
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.005000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 244210985909306284, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.005000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 719227075426445552, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_Name
+      value: Povraz zhora Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250156029592777703, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264562781255431910, guid: 9f607e5b9ff7a634a9b8a9eff839be0f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f607e5b9ff7a634a9b8a9eff839be0f, type: 3}
