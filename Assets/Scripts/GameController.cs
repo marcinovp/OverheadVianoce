@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
 
     [Header("Mute")]
     [SerializeField] Toggle muteToggle;
-    [SerializeField] AudioSource[] audioSources;
+    [SerializeField] AudioSource podmaz;
 
     private const string cameraAnimatorParam = "naPozdrav";
     private const string mutePrefParam = "isMuted";
@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         skipButton.SetActive(true);
         restartButton.SetActive(false);
+        DontDestroyOnLoad(podmaz);
 
         foreach (Pismeno pismeno in pismena)
         {
@@ -81,6 +82,7 @@ public class GameController : MonoBehaviour
     public void OnMuteValueChanged(bool value)
     {
         RuntimeStorage.SetValue(mutePrefParam, value);
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (var audio in audioSources)
         {
             audio.mute = value;
