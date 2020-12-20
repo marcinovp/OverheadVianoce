@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject skipButton;
     [SerializeField] GameObject restartButton;
-
+    
     [SerializeField] string overheadUrl = "https://overhead4d.com/";
 
+    [Header("Mute")]
+    [SerializeField] Toggle muteToggle;
+    [SerializeField] AudioSource[] audioSources;
+
     private const string cameraAnimatorParam = "naPozdrav";
+    private const string mutePrefParam = "isMuted";
 
     void Start()
     {
@@ -25,11 +31,17 @@ public class GameController : MonoBehaviour
         {
             pismeno.OnPismenoDropped += OnPismenoDropped;
         }
+
+        bool isMuted = RuntimeStorage.GetValueBoolean(mutePrefParam, true);
+        OnMuteValueChanged(isMuted);
+        muteToggle.isOn = isMuted;
     }
 
     public void PreskocitHru()
     {
         droneController.AutoCutOff();
+        droneController.BlockInput(true);
+        skipButton.gameObject.SetActive(false);
         //for (int i = pismena.Count - 1; i >= 0; i--)
         //{
         //    pismena[i].Drop();
@@ -55,6 +67,7 @@ public class GameController : MonoBehaviour
         {
             GoToPozdrav();
 
+            droneController.BlockInput(true);
             skipButton.gameObject.SetActive(false);
             restartButton.gameObject.SetActive(true);
         }
@@ -63,5 +76,14 @@ public class GameController : MonoBehaviour
     private void GoToPozdrav()
     {
         cameraAnimator.SetBool(cameraAnimatorParam, true);
+    }
+
+    public void OnMuteValueChanged(bool value)
+    {
+        RuntimeStorage.SetValue(mutePrefParam, value);
+        foreach (var audio in audioSources)
+        {
+            audio.mute = value;
+        }
     }
 }

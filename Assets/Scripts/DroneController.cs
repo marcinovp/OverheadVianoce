@@ -31,7 +31,6 @@ public class DroneController : MonoBehaviour
     {
         if (!captureInput)
         {
-            captureInput = false;
             input = Vector3.zero;
             return;
         }
@@ -40,7 +39,7 @@ public class DroneController : MonoBehaviour
         movementVector.Normalize();
         input = new Vector3(movementVector.x, 0, movementVector.y);
 
-        Debug.LogFormat("OnMove: {0}", movementVector);
+        //Debug.LogFormat("OnMove: {0}", movementVector);
     }
 
     void FixedUpdate()
@@ -142,5 +141,10 @@ public class DroneController : MonoBehaviour
             distance = Vector3.Distance(transform.position, point2);
         }
         input = Vector3.zero;
+    }
+
+    public void BlockInput(bool block)
+    {
+        captureInput = !block;
     }
 }
