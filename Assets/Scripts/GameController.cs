@@ -26,7 +26,15 @@ public class GameController : MonoBehaviour
     {
         skipButton.SetActive(true);
         restartButton.SetActive(false);
-        DontDestroyOnLoad(podmaz);
+
+        bool wasStarted = RuntimeStorage.GetValueBoolean("wasStarted", false);
+        if (!wasStarted)
+        {
+            DontDestroyOnLoad(podmaz);
+            RuntimeStorage.SetValue("wasStarted", true);
+        }
+        else
+            Destroy(podmaz.gameObject);
 
         foreach (Pismeno pismeno in pismena)
         {
