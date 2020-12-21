@@ -1720,11 +1720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425314, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.89
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 425314, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425314, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1760,11 +1760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: ShapeModule.m_Scale.z
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: prewarm
@@ -1792,7 +1792,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 160
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
+      propertyPath: ForceModule.z.scalar
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
+      propertyPath: ForceModule.z.minScalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
+      propertyPath: ForceModule.x.scalar
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882972, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
+      propertyPath: ForceModule.x.minScalar
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eee3ffbad1ff4956ad141db40519abf, type: 3}
