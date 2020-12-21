@@ -9,10 +9,10 @@ public class PostBuildActions
     public static void OnPostProcessBuild(BuildTarget target, string targetPath)
     {
 #if UNITY_WEBGL
-        var path = Path.Combine(targetPath, "Build/UnityLoader.js");
-        var text = File.ReadAllText(path);
-        text = text.Replace("UnityLoader.SystemInfo.mobile", "false");
-        File.WriteAllText(path, text);
+        //var path = Path.Combine(targetPath, "Build/UnityLoader.js");
+        //var text = File.ReadAllText(path);
+        //text = text.Replace("UnityLoader.SystemInfo.mobile", "false");
+        //File.WriteAllText(path, text);
 #endif
     }
 }
