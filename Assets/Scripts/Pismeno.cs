@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Pismeno : MonoBehaviour
 {
+    [SerializeField] private AudioSource dropAudio;
+
     public event Action<Pismeno> OnPismenoDropped;
 
     private readonly string droneTag = "Player";
@@ -41,5 +43,10 @@ public class Pismeno : MonoBehaviour
         rb.useGravity = true;
         isDropped = true;
         OnPismenoDropped?.Invoke(this);
+    }
+
+    private void OnDestroy()
+    {
+        dropAudio.Play();
     }
 }

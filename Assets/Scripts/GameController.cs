@@ -6,18 +6,20 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] Animator cameraAnimator;
-    [SerializeField] DroneController droneController;
-    [SerializeField] List<Pismeno> pismena;
+    [SerializeField] private Animator cameraAnimator;
+    [SerializeField] private DroneController droneController;
+    [SerializeField] private AudioSource cutAudio;
+    [SerializeField] private List<Pismeno> pismena;
 
-    [SerializeField] GameObject skipButton;
-    [SerializeField] GameObject restartButton;
+    [Header("GUI")]
+    [SerializeField] private GameObject skipButton;
+    [SerializeField] private GameObject restartButton;
     
-    [SerializeField] string overheadUrl = "https://overhead4d.com/";
+    [SerializeField] private string overheadUrl = "https://overhead4d.com/";
 
     [Header("Mute")]
-    [SerializeField] Toggle muteToggle;
-    [SerializeField] AudioSource podmaz;
+    [SerializeField] private Toggle muteToggle;
+    [SerializeField] private AudioSource podmaz;
 
     private const string cameraAnimatorParam = "naPozdrav";
     private const string mutePrefParam = "isMuted";
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         bool wasStarted = RuntimeStorage.GetValueBoolean("wasStarted", false);
         if (!wasStarted)
         {
-            DontDestroyOnLoad(podmaz);
+            DontDestroyOnLoad(podmaz.gameObject);
             RuntimeStorage.SetValue("wasStarted", true);
         }
         else
@@ -71,6 +73,7 @@ public class GameController : MonoBehaviour
     private void OnPismenoDropped(Pismeno pismeno)
     {
         pismena.Remove(pismeno);
+        cutAudio.Play();
 
         if (pismena.Count == 0)
         {
