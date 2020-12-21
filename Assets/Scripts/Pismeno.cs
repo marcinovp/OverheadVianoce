@@ -47,6 +47,7 @@ public class Pismeno : MonoBehaviour
 
     private void OnDestroy()
     {
-        dropAudio.Play();
+        if (dropAudio != null)
+            dropAudio.Play();
     }
 }

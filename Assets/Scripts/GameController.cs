@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     {
         skipButton.SetActive(true);
         restartButton.SetActive(false);
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 
         bool wasStarted = RuntimeStorage.GetValueBoolean("wasStarted", false);
         if (!wasStarted)
